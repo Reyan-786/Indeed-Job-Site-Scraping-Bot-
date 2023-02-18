@@ -18,7 +18,7 @@ import time
 # In[2]:
 
 
-driver = webdriver.Chrome("C:\\Users\\asus\\OneDrive\\Desktop\\Drivers\\chromedriver.exe")
+driver = webdriver.Chrome("your chrome web driver location here\\chromedriver.exe")
 url = "https://in.indeed.com/"
 driver.get(url)
 
@@ -75,7 +75,7 @@ while True:
         print("All Data Scraped Successfully.....")
         break
 
-df.to_csv("C:\\Users\\asus\\Desktop\\Desktop\\Project Indeed Job Site Scraping\\{}.csv".format(job_title))
+df.to_csv("your directory where you want to save this scraped file\\{}.csv".format(job_title))
 
 
 # #### * Now we have scraped all the postings data from the Indeed Job Site 
@@ -109,9 +109,9 @@ msg['From']  = sender
 msg['To'] = ','.join(reciever)
 
 part = MIMEBase('application', 'octet-stream')
-part.set_payload(open("C:\\Users\\asus\\Desktop\\Desktop\\Project Indeed Job Site Scraping\\{}.csv".format(job_title),'rb').read())
+part.set_payload(open("the location where you saved the scraped file\\{}.csv".format(job_title),'rb').read())
 encoders.encode_base64(part)
-part.add_header('Content-Disposition','attachment; filename ="C:\\Users\\asus\\Desktop\\Desktop\\Project Indeed Job Site Scraping\\{}.csv"'.format(job_title))
+part.add_header('Content-Disposition','attachment; filename ="the location where you saved the scraped file\\{}.csv"'.format(job_title))
 msg.attach(part)
 
 s=smtplib.SMTP_SSL(host ='smtp.gmail.com',port = 465)
